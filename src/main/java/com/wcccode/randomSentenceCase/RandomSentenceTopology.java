@@ -13,7 +13,7 @@ public class RandomSentenceTopology {
         config.setDebug(false);
         config.setMaxTaskParallelism(1);
         LocalCluster cluster = new LocalCluster();
-        cluster.submitTopology("wordcount", config, builder.createTopology());
+        cluster.submitTopology("SequenceTest", config, builder.createTopology());
         try {
             Thread.sleep(60000);
         } catch (InterruptedException e) {

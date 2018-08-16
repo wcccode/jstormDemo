@@ -20,7 +20,6 @@ public class SplitSentenceBolt extends BaseRichBolt {
     public void execute(Tuple tuple) {
         String sentence = tuple.getStringByField("sentence");
         String[] words = sentence.split(" ");
-        System.out.println(words);
         for(String word : words){
             this.collector.emit(new Values(word));
         }

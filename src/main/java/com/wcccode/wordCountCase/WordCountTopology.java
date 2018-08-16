@@ -38,11 +38,13 @@ public class WordCountTopology {
 
         Config config = new Config();
         config.setNumWorkers(2);
-
+//        config.setDebug(true);
+        config.setMaxTaskParallelism(1);
         LocalCluster cluster = new LocalCluster();
 
         cluster.submitTopology(TOPOLOGY_NAME, config, builder.createTopology());
-        waitForSeconds(10);
+        waitForSeconds(30);
+
         cluster.killTopology(TOPOLOGY_NAME);
         cluster.shutdown();
     }

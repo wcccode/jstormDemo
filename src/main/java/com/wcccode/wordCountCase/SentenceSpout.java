@@ -32,7 +32,6 @@ public class SentenceSpout extends BaseRichSpout {
 
     public void nextTuple() {
         Values word = new Values(sentences[index]);
-        System.out.println(word);
         this.collector.emit(word);
         index++;
         if (index >= sentences.length) {
