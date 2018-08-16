@@ -1,10 +1,10 @@
-package com.wcccode;
+package com.wcccode.randomSentenceCase;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
 
-public class Topology1 {
+public class RandomSentenceTopology {
     private static TopologyBuilder builder = new TopologyBuilder();
     public static void main(String[] args) {
         Config config = new Config();
@@ -14,5 +14,14 @@ public class Topology1 {
         config.setMaxTaskParallelism(1);
         LocalCluster cluster = new LocalCluster();
         cluster.submitTopology("wordcount", config, builder.createTopology());
+        try {
+            Thread.sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //结束拓扑
+        cluster.killTopology("SequenceTest");
+
+        cluster.shutdown();
     }
 }

@@ -1,4 +1,4 @@
-package com.wcccode;
+package com.wcccode.randomSentenceCase;
 
 
 import backtype.storm.topology.BasicOutputCollector;
